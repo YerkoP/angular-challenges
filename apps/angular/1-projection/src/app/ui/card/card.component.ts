@@ -10,11 +10,12 @@ import { ListItemComponent } from '../list-item/list-item.component';
       <img [src]="img" width="200px" />
 
       <section>
-        <app-list-item
-          *ngFor="let item of list"
-          [name]="item.firstName || item.name"
-          [id]="item.id"
-          (delete)="delete.emit(item.id)"></app-list-item>
+        @for (item of list; track item.id) {
+          <app-list-item
+            [name]="item.firstName || item.name"
+            [id]="item.id"
+            (delete)="delete.emit(item.id)"></app-list-item>
+        }
       </section>
 
       <button
