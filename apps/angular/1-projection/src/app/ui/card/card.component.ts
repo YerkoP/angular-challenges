@@ -12,7 +12,7 @@ import { ListItemComponent } from '../list-item/list-item.component';
       <section>
         <app-list-item
           *ngFor="let item of list"
-          [name]="item.firstName"
+          [name]="item.firstName || item.name"
           [id]="item.id"
           (delete)="delete.emit(item.id)"></app-list-item>
       </section>
